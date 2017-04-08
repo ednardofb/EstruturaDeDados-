@@ -1,17 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-package Trabalho3;
-
-public class ArrayLista {
+/**
+ *
+ * @author Emilson
+ */
+public class LTespecial{
 
     private Celula primeiro, ultimo, posicao;
     private int testTam = 0;
-    private static class Celula{ Object item;
+    private static class Celula{ 
+        int item;
 
-        public Object getItem() {
+
+        public int getItem() {
             return item;
         }
 
-        public void setItem(Object item) {
+        public void setItem(int item) {
             this.item = item;
         }
 
@@ -24,13 +33,12 @@ public class ArrayLista {
         }
         Celula prox; 
     }
-    
-    
+     
     //É criado uma celula nova, na qual o ultimo recebe o Objeto e passa a 
     //referenciar um campo NULL;
     //***OK***
-    public void inserir(Object x){      
-        if(x != null){
+    public void inserir(int x){      
+        if(x >=0){
             this.ultimo.prox = new Celula();
             //Recebe o campo de referencia da proxima celula a seguir; 
             this.ultimo = this.ultimo.prox;
@@ -42,9 +50,10 @@ public class ArrayLista {
             System.out.println("Objeto invalido");
         }
     }
+  
     // Método "inserir2" é usado para inserir células no início
     //***OK***
-    public void inserir2(Object z){
+    public void inserirInicio(int z){
         //Célula criada
         Celula aux = new Celula();
         //Célula recebe o objeto
@@ -71,34 +80,6 @@ public class ArrayLista {
         return  this.testTam;
     }  
     
-    //Metodo a seguir imprimir, verifica se a lista é vazia primeiramente, caso 
-    //Nao seja, é feito a procura pelo objeto, e logo em seguida imprimido
-    //***OK***
-    public Object imprimirElem(Object obj){         
-        if(this.primeiro.prox == null || obj == null){
-            return "Lista vazia ou objeto null";
-        }
-        if(this.primeiro.item == null){
-            Celula aux = this.primeiro;
-            while(aux.prox != null){
-                if(aux.prox.item.equals(obj)){
-                    return "Elemento: " +  aux.prox.item;
-                }
-                aux = aux.prox;
-            }
-        }
-        else{
-            Celula aux2 = this.primeiro;
-            while(aux2 != null){
-                if(aux2.item.equals(obj)){
-                    return "Elemento: " +  aux2.item;
-                }
-                aux2 = aux2.prox;
-            }
-            
-        }
-        return "Objeto nao encontrado";
-    }
     
     //O metodo a seguir imprime o primeiro elemento
     //***OK***
@@ -111,14 +92,13 @@ public class ArrayLista {
             return this.posicao.item;
         }
     }
-    
+    //Esse método tira o objeto por indicação e não por posição
     //***OK***
-    public Object retira(Object chave){
-        if(this.primeiro == this.ultimo || chave == null){
-            return null;
-        }
+   
+    
+    public Object retira(int chave){
         Celula aux = this.primeiro;
-        while(aux.prox!=null && !aux.prox.item.equals(chave)){
+        while(aux.prox.item != chave){
             aux = aux.prox;
         }
         if(aux.prox == null){
@@ -172,13 +152,62 @@ public class ArrayLista {
    
         
     //***OK***
-    public ArrayLista(){
+    public LTespecial(){
         this.primeiro = new Celula();
         this.posicao = this.primeiro;
         this.ultimo = this.primeiro;
         this.primeiro.prox = null;
     }
     
+         //Método para saber os menores da listaEncadeada conforme o total de remover
+    public void teste2(int remover, int dig){
+        
+        while(remover > 0){
+            Celula base = primeiro.prox;
+            Celula aux = primeiro.prox;
+            int d = 1;
+            int x =0;
+                while(d ==1){
+                    if(base.item <= aux.item){
+                        x++;
+                        if(x == dig){
+                            int y = base.item;
+                            System.out.println("y" + y);
+                           // 
+                            Celula aux3 = this.primeiro;
+                            while(aux3.prox.item != y){
+                                aux3 = aux3.prox;
+                            }
+                            if(aux3.prox == null){
+                                this.ultimo = aux;
+                            }
+
+
+                            Celula z = aux3.prox;
+                            Object item = z.item;
+                            aux3.prox = z.prox;
+                           
+                            d--;
+                           
+                        }
+                        else{
+                                aux = aux.prox;
+                            
+                               
+                        }
+                    }
+                    else{
+                        base = base.prox;
+                        aux = primeiro.prox;
+                        x = 0;
+                        
+                    }
+                    
+                    
+                }
+            dig = dig -1;
+            remover --;
+        }
+    }
+    
 }
-
-
