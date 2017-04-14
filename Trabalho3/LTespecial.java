@@ -149,42 +149,44 @@ public class LTespecial{
       }
       return item;
     } 
-   
-        
-    //***OK***
-    public LTespecial(){
-        this.primeiro = new Celula();
-        this.posicao = this.primeiro;
-        this.ultimo = this.primeiro;
-        this.primeiro.prox = null;
-    }
     
-         //Método para saber os menores da listaEncadeada conforme o total de remover
-    public void teste2(int remover, int dig){
-        
+      
+    public void magicaDaPeste(int remover, int dig){
+        //Tudo ocorre enquanto a quantidade de dígitos que for pra remover for
+        //maior que 0
         while(remover > 0){
+            //Celula base vai conter o dígito que será comparado com os demais
+            //para saber se ele é o menor
             Celula base = primeiro.prox;
+            //'aux' vai ficar rodando o arryaList para compara todos com o dígito
+            //da célula base
             Celula aux = primeiro.prox;
+            //'d' será alterado para 0 quando um menor dígito for detectado
+            //logo 'd' voltará para 1 quando começar uma nova procura por um menor dígito
             int d = 1;
+            //'x' vai ser incremetando até chgar a quantidade de dígitos, que vai
+            //indicar que o dígito da célula base é o menor
             int x =0;
                 while(d ==1){
                     if(base.item <= aux.item){
                         x++;
+                        //Se 'x' ficou igual a quantidade de dígitos então já temos 
+                        //um menor
                         if(x == dig){
+                            //'y' recebe o menor dígito
                             int y = base.item;
-                            System.out.println("y" + y);
-                           // 
+                            //Proceso para procurar o dígito e remover
                             Celula aux3 = this.primeiro;
                             while(aux3.prox.item != y){
                                 aux3 = aux3.prox;
                             }
+                            //atualização do ponteiro último
                             if(aux3.prox == null){
                                 this.ultimo = aux;
                             }
-
-
+                            
                             Celula z = aux3.prox;
-                            Object item = z.item;
+                            //Object item = z.item;
                             aux3.prox = z.prox;
                            
                             d--;
@@ -209,5 +211,16 @@ public class LTespecial{
             remover --;
         }
     }
+   
+        
+    //***OK***
+    public LTespecial(){
+        this.primeiro = new Celula();
+        this.posicao = this.primeiro;
+        this.ultimo = this.primeiro;
+        this.primeiro.prox = null;
+    }
+    
+     
     
 }
