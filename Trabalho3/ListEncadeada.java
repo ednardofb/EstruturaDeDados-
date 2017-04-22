@@ -1,13 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Emilson
- */
 public class ListEncadeada{
 
     private Celula primeiro, ultimo, posicao;
@@ -33,27 +24,11 @@ public class ListEncadeada{
         }
         Celula prox; 
     }
-     
-    //É criado uma celula nova, na qual o ultimo recebe o Objeto e passa a 
-    //referenciar um campo NULL;
-    //***OK***
-    public void inserir(int x){      
-        if(x >=0){
-            this.ultimo.prox = new Celula();
-            //Recebe o campo de referencia da proxima celula a seguir; 
-            this.ultimo = this.ultimo.prox;
-            this.ultimo.item = x;
-            this.ultimo.prox = null;
-            this.testTam++;
-        }
-        else{
-            System.out.println("Objeto invalido");
-        }
-    }
-  
-    // Método "inserir2" é usado para inserir células no início
-    //***OK***
-    public void inserirInicio(int z){
+     /* *************************************************************INSERIR */
+    
+    
+    /* inserindo no inicio */
+    public void inserirInicio(Object z){
         //Célula criada
         Celula aux = new Celula();
         //Célula recebe o objeto
@@ -75,27 +50,48 @@ public class ListEncadeada{
         }    
     }
     
-    //***OK***
-    public int tam(){         
-        return  this.testTam;
-    }  
-    
-    
-    //O metodo a seguir imprime o primeiro elemento
-    //***OK***
-    public Object primeiro(){
-        this.posicao = this.primeiro.prox;
-        if(this.posicao == null){
-            return "Nao existe primeiro";
-        }
-        else{
-            return this.posicao.item;
+    /* Inserindo em qualquer posição */
+    public void inserirPorPosição(Object x, int ind){
+        int y = ind - 1;
+        // Caso seja no inicio
+        if(y == 0){
+            inserirInicio(x);
         }
     }
-    //Esse método tira o objeto por indicação e não por posição
-    //***OK***
-   
     
+   /* inserindo no último */
+    public void inserir(Object x){      
+            this.ultimo.prox = new Celula();
+            //Recebe o campo de referencia da proxima celula a seguir; 
+            this.ultimo = this.ultimo.prox;
+            this.ultimo.item = x;
+            this.ultimo.prox = null;
+            this.testTam++;
+        
+    }
+  
+  
+    
+    /* ************************************************************** REMOVER */
+    
+    /* Remove o primeiro */
+    public void removerPrimeiro(){
+       if(vazia() == "vazia"){
+           System.out.println("Lista vazia !!");
+       }
+      Celula aux  = this.primeiro;
+      Celula x = aux.prox;
+      Object item = x.item;
+      aux.prox = x.prox;
+      this.testTam --;
+        System.out.println("Removido : " + item);
+      if(aux.prox == null){
+          this.ultimo = aux;
+      }
+      
+    } 
+    
+    /* Retira qualquer objeto */
     public Object retira(Object chave){
         if(this.primeiro == this.ultimo || chave == null){
             return null;
@@ -104,8 +100,12 @@ public class ListEncadeada{
         while(aux.prox!=null && !aux.prox.item.equals(chave)){
             aux = aux.prox;
         }
-        if(aux.prox == null){
-            this.ultimo = aux;
+        if(aux == this.primeiro.prox){
+            removerPrimeiro();
+        }
+        /* Se o objeto é o último, então chamamos o removerUltimo()*/
+        if(aux == this.ultimo){
+            removerUltimo();
         }
         if(aux.prox == null){
             return null;
@@ -114,18 +114,47 @@ public class ListEncadeada{
         Celula x = aux.prox;
         Object item = x.item;
         aux.prox = x.prox;
+        this.testTam --;
         return  "Removido: " + item;
     }
+    
+    /* Remover último */
+   public void removerUltimo(){
+       Celula aux = primeiro;
+       // se o primeiro é o último
+       if(aux.prox.prox == null){
+           removerPrimeiro();
+       }
+       else{
+            while(aux.prox.prox != null){
+                aux = aux.prox;
+            }   
+            Object item = aux.prox.item;
+            this.ultimo = aux;
+            aux.prox = null;
+            this.testTam --;
+            System.out.println("Removido :" + item);
+       }
+       
         
-    //***OK***
+    }
+        
+    
+   /***************************************************************************/ 
+    /* vazia*/
     public Object vazia(){
         if (this.primeiro == this.ultimo)
             return "vazia";
        return "";
         
     }
+      
+    /* tamanho*/
+    public void tam(){         
+        System.out.println("Tamanho autal : " + this.testTam);
+    }  
     
-    //***OK***
+    /* imprimir tudo*/
     public void imprimirTD(){ 
         Celula aux = this.primeiro;
         while(aux.prox != null){
@@ -136,25 +165,10 @@ public class ListEncadeada{
         System.out.println(" ");
     }
     
-    //Método "removerPrimeiro" remove o primeiro elemento da lista, ou seja,
-    //a primeria célula após a cabeça
-    //***OK***
-    public Object removerPrimeiro(){
-       if(vazia() == "vazia"){
-           System.out.println("Lista vazia !!");
-       }
-      Celula aux  = this.primeiro;
-      Celula x = aux.prox;
-      Object item = x.item;
-      aux.prox = x.prox;
-      if(aux.prox == null){
-          this.ultimo = aux;
-      }
-      return item;
-    } 
+   
    
         
-    //***OK***
+    /* construtor */
     public ListEncadeada(){
         this.primeiro = new Celula();
         this.posicao = this.primeiro;
