@@ -1,6 +1,6 @@
 
 package Trabalho6;
-import Trabalho4.PilhaEncadeada;
+import Pilha.PilhaEncadeada;
 
 public class Calc {
     private PilhaEncadeada test = new PilhaEncadeada();
@@ -10,19 +10,22 @@ public class Calc {
     public void inverteCalculo(String normal){
         //Enfileira na primeira pilha 'test'
         for(int ind = 0; ind < normal.length(); ind ++){
-            test.empilheirar(normal.charAt(ind));
+            test.add(normal.charAt(ind));
            
         }
+        /*
         //Mostrando que ficou inverso na primeira pilha
-        test.imprimetd();
+        test.imprimir();
         //Invertendo para uma segunda pilha, assim ficará no modo normal
          PilhaEncadeada aux = new PilhaEncadeada();
         for(int ind = 0; ind < normal.length(); ind++){
-            aux.empilheirar(test.desempilheirar());
+            aux.add(test.remover());
         }
+
+        */
         
         //Mostrando que ficou com a sequência normal na segunda pilha;
-        aux.imprimetd();
+        test.imprimir();
     }
     
     

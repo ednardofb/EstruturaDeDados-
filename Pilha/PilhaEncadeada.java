@@ -21,4 +21,9 @@ public class PilhaEncadeada {
    public void tam (){
        aux.tam();
    }
+   
+   //Imprimir tudo
+   public void imprimir(){
+       aux.imprimirTD();
+   }
 }
