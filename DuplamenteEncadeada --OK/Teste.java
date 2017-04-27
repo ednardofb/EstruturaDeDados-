@@ -19,9 +19,14 @@ public class Teste {
         a.inserirNoFim(1);
         a.inserirNoFim(2);
         a.inserirNoFim(3);
-        a.inserirInicio(4);
-        a.inserirPorPosicao(7, 2);
-       
+        a.inserirNoFim(4);
+        a.inserirNoFim(5);
+        a.inserirNoFim(6);
+        
+        a.imprimirTD();
+        
+        
+        a.removerPorObjeto(6);
         
         a.imprimirTD();
     }
