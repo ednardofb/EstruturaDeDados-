@@ -5,40 +5,38 @@ import Trabalho2.Array;
 public class PilhaArray {
     //Aqui se passa como parâmetro inicial "10" mas poderia fazer sem parâmetros
     //utilizando um construtor normal.
-    Array aux = new Array(10);
+    Array aux = new Array();
     
     //Chamada do construtor sem parâmetro
     /* Array aux2 = new Array();
     */
     
-    //***OK*** Chamada de método Linha --- 27
-    public void empilhar(Object x){
+    //Adicionar
+    public void add(Object x){
         aux.insere(x);
     }
     
-    //***OK*** Chamada de método Linha --- 60
-    public Object desempilhar(){
+    //Remover
+    public Object remover(){
         return aux.removerUltimo();
     }
     
-    //Caso queira saber se o arra está vazio sem ter que chamar o método "desepilhar"
-    //é só chamar o método "vazio"
-    //***OK*** Chama de método Linha --- 114
+    //Vazia
     public boolean vazio(){
         return aux.vazio();
     }
     
-    //***OK*** Chamada de método Linha --- 120
+    //Tamanho
     public int tamanho(){
         return aux.tam();
     }
     
-    //***OK***
+    //Imprime Tudo
     public void imprime(){
         aux.imprimeTd();
     }
     
-    //***OK*** Chamada de método Linha --- 126
+    //Quantidade Elementos
     public int quantiaElementos(){
         return aux.quantElem();
     }

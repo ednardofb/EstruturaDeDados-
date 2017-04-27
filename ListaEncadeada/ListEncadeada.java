@@ -1,3 +1,5 @@
+package ListaEncadeada;
+
 
 public class ListEncadeada{
 
@@ -52,10 +54,23 @@ public class ListEncadeada{
     
     /* Inserindo em qualquer posição */
     public void inserirPorPosição(Object x, int ind){
-        int y = ind - 1;
+        int y = ind;
         // Caso seja no inicio
-        if(y == 0){
+        if(y == 1){
             inserirInicio(x);
+        }
+        else{
+            Celula aux = primeiro.prox;
+            int cont = 2;
+            while(cont != y){
+                aux= aux.prox;
+                cont++; 
+            }
+           Celula h = new Celula();
+           h.item   = x; 
+           h.prox = aux.prox;
+           aux.prox= h;
+           
         }
     }
     
@@ -75,7 +90,7 @@ public class ListEncadeada{
     /* ************************************************************** REMOVER */
     
     /* Remove o primeiro */
-    public void removerPrimeiro(){
+    public Object removerPrimeiro(){
        if(vazia() == "vazia"){
            System.out.println("Lista vazia !!");
        }
@@ -88,7 +103,7 @@ public class ListEncadeada{
       if(aux.prox == null){
           this.ultimo = aux;
       }
-      
+      return item;
     } 
     
     /* Retira qualquer objeto */

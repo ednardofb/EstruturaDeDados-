@@ -1,0 +1,17 @@
+Utilizando Lista Encadeada para fila (pois add no fim e remover no inicio é constante)
+
+fila de prioridade = o elemento removido é sempre o de maior prioridade
+analizar com 2 implementações:
+1- Lista ordenada
+2- Lista ou não ordenada
+
+logo para acontecer isso, é bom que deixamos por ordem de maior prioridade, colocando sempre o
+elemento de mario prioridade em primeiro lugar na fila
+
+=====Lista não ordenada 
+iserir = constante
+remover = linear (pois o de maior prioridade não é o primeiro, não está em ordem)
+
+=====Lista Ordenada
+inserir = constante
+remover = constante

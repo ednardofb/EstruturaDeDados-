@@ -1,3 +1,5 @@
+package Trabalho3;
+
 
 import static java.lang.Math.pow;
 import java.util.Scanner;
@@ -12,12 +14,12 @@ import java.util.Scanner;
  *
  * @author Emilson
  */
-public class testeJogo {
+public class TesteJogo {
     
      public static void main(String args []){
         
         
-         testeJogo a = new testeJogo();
+         TesteJogo a = new TesteJogo();
          
          int  dig = 1;
          int remover = 1;
