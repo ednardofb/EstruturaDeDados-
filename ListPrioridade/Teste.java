@@ -19,8 +19,12 @@ public class Teste {
         a.inserir(5);
         a.inserir(0);
         a.inserir(4);
+       
         
         a.imprimirTD();
+        
+        
+        System.out.println(a.teste(4));
     }
     
 }

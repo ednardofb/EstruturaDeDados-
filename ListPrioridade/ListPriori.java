@@ -5,9 +5,6 @@
  */
 package ListPrioridade;
 
-import Fila.FilaEncadeada;
-import ListaEncadeada.ListEncadeada;
-
 /**
  *
  * @author Ednardofb
@@ -49,14 +46,19 @@ public class ListPriori{
                 if(aux.prox == null){
                     aux.prox = new Celula();
                     aux.prox.item = z;
+                    this.testTam++;
                     ind = 1;
                 }
                 else{
-                    if(aux.prox.item < z){
+                    //usando "<" para a lista de prioridade
+                    //No caso de ter que ordenar do menor para o maior tem que trocar
+                    //de "<" para ">"
+                    if(aux.prox.item > z){
                     Celula a = new Celula();
                     a.prox = aux.prox;
                     a.item = z;
                     aux.prox = a;
+                    this.testTam++;
                     ind = 1;
                     }
                     else{
@@ -92,6 +94,21 @@ public class ListPriori{
         System.out.println(" ");
     }
     
+    public int teste(int x){
+        Celula aux = new Celula();
+        aux.prox = primeiro.prox;
+        int ind = 1;
+        while(ind <= x){
+            ind++;
+            aux = aux.prox;
+            
+        }
+        return aux.item;
+    }
+    
+    public int tam(){
+        return this.testTam;
+    }
     // construtor
     public ListPriori(){
         this.primeiro = new Celula();
