@@ -1,5 +1,5 @@
 
-package Trabalho2;
+package Array;
 
 
 public class Array {
@@ -11,6 +11,41 @@ public class Array {
     
     
     //*******************************************************INSERIR************
+   
+     //Inserir no inicio
+    public void inserirInicio(Object x){
+        if(this.ultimo >= this.item.length){
+            System.out.println("Lista cheia");
+        }
+        else{
+            int i = ultimo;
+            for(int ind = this.ultimo - 1; ind >= 0; ind--){
+                this.item[i] = this.item[ind];
+                i--;
+            }
+            this.item[0] = x;
+            this.ultimo++;
+            this.qntElementos++;
+        }
+        
+    }
+    
+    //Inserir por posição
+    public void inserirPorPosicao(Object x, int ind){
+        if(this.ultimo >= this.item.length){
+            System.out.println("Array Cheio");
+        }
+            
+            for(int i= 0; i <= this.ultimo-1; i++){
+               
+            }
+            
+                this.ultimo++;
+                this.qntElementos++;
+        
+    }
+
+    
     // Inseri no final
     public Object insere(Object x){
         //Faz a verificação para caso de lista cheia
@@ -47,23 +82,7 @@ public class Array {
         
     }
     
-    //Inserir no inicio
-    public void inserirInicio(Object x){
-        if(this.ultimo >= this.item.length){
-            System.out.println("Lista cheia");
-        }
-        else{
-            int i = ultimo;
-            for(int ind = this.ultimo - 1; ind >= 0; ind--){
-                this.item[i] = this.item[ind];
-                i--;
-            }
-            this.item[0] = x;
-            this.ultimo++;
-            this.qntElementos++;
-        }
-        
-    }
+   
     //**********************************************************REMOVER*********
     //Remover último
  
@@ -127,8 +146,8 @@ public class Array {
     public int quantElem(){
         return  this.qntElementos;
     }
+    
     //imprimirTd() imprime todos os elementos do array em uso
-    //***OK*********************************************************************
     public void imprimeTd(){
         for(int i = 0; i < this.qntElementos; i++){
             System.out.print(this.item[i]);

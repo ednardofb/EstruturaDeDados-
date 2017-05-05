@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Trabalho2;
+package Array;
 
 /**
  *
@@ -20,9 +20,9 @@ public class TesteArray {
         a.insere(5);
         a.insere(6);
         
-        a.imprimeTd();
         
-        a.insere(7);
+        a.imprimeTd();
+        a.inserirPorPosicao(9, 1);
         a.imprimeTd();
     }
  

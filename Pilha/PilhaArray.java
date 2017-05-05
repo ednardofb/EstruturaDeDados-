@@ -1,7 +1,7 @@
 
-package Trabalho4;
+package Pilha;
 
-import Trabalho2.Array;
+import Array.Array;
 public class PilhaArray {
     //Aqui se passa como parâmetro inicial "10" mas poderia fazer sem parâmetros
     //utilizando um construtor normal.

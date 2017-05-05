@@ -103,7 +103,7 @@ public class Trabalho {
                 BufferedWriter escrever = new BufferedWriter(fw);
               
                int id =1;
-               escrever.write("|");
+               escrever.write("| ");
                while(id <= a.tam()){
                       escrever.write(a.teste(id)+ " ");
                   if(id == a.tam()){
