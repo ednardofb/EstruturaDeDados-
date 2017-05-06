@@ -72,6 +72,7 @@ public class Circular {
            }
           
        }
+    
     //Inseir fim           
     }
     public void inserirFim(Object z){
