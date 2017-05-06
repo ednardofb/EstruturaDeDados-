@@ -21,10 +21,10 @@ public class Trabalho {
     
     
     //Método junta os dígitos para formar os inteiros
-    public static void magica(String linha, File arq){
+    public  static void magica(String linha, File arq){
         ListPriori a = new ListPriori();
         char ci = linha.charAt(0);
-        //fica sendo comparado com o tamanho do ArrayList
+        //fica sendo comparado com o tamanho do Array
         int ind = 0;
         //'x' é o campo que forma o número inteiro
         int x = 0;
@@ -35,7 +35,9 @@ public class Trabalho {
                 //Quando o valor atual de 'ci' for == 32 (space) então o valor de
                 //'x' já está completo e pronto para ser enviado para a célula
                 if(ci == 32 || ind == linha.length()){
-                     
+                   //inserir() é um método da Class ListPriori do pacote ListPrioridade.
+                   //Esse método vai inserindo cada objeto na sua célula certa da 
+                   //sequência, que nesse caso é do menor para o maior objeto
                    a.inserir(x);
                    x =0;
                 }
@@ -52,22 +54,22 @@ public class Trabalho {
                 }
                 ind++;
         }
-        //Depois de colocara os números em cada célula, vamos escrever todos os
-        //valores contidos no ArrayList para a sual linha respectiva no arquivo de
+        //Depois de colocar os números em cada célula, vamos escrever todos os
+        //valores contidos na Lista encadeada para a sua linha respectiva no arquivo de
         //saída
        try{
         //escrevendo
                 FileWriter fw = new FileWriter(arq, true);
                 BufferedWriter escrever = new BufferedWriter(fw);
               
-               int id =1;
-               escrever.write("| ");
-               while(id <= a.tam()){
-                      escrever.write(a.teste(id)+ " ");
-                  if(id == a.tam()){
-                      escrever.write("|");
-                       escrever.newLine();
-                   }
+                int id =1;
+                escrever.write("| ");
+                while(id <= a.tam()){
+                    escrever.write(a.teste(id)+ " ");
+                    if(id == a.tam()){
+                        escrever.write("|");
+                        escrever.newLine();
+                    }
                    id++;
                 }
                
