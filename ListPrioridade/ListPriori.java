@@ -109,6 +109,25 @@ public class ListPriori{
     public int tam(){
         return this.testTam;
     }
+    
+    //Método para somar todos os elementos da Lista
+    public void somarTudo(){
+        Celula aux = this.primeiro.prox;
+        soma(aux, 0);
+    }
+    
+    //Somar todos objetos inteiros (Recursivo) chamado pelo método anterior
+   private void soma(Celula valor, int resultado) {  
+      
+       if(valor == null){
+           System.out.println("resultado: " + resultado);
+       }else{
+       resultado = resultado + valor.item;
+       valor = valor.prox;
+       soma(valor, resultado);
+       }
+      
+    }
     // construtor
     public ListPriori(){
         this.primeiro = new Celula();

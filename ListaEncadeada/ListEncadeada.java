@@ -156,6 +156,9 @@ public class ListEncadeada{
         
     
    /***************************************************************************/ 
+   
+   
+   
     /* vazia*/
     public Object vazia(){
         if (this.primeiro == this.ultimo)

@@ -19,12 +19,16 @@ public class Teste {
         a.inserir(5);
         a.inserir(0);
         a.inserir(4);
-       
+        a.inserir(1);
+        a.inserir(1);
+       ListPriori b = new ListPriori();
+       b.inserir(11);
         
         a.imprimirTD();
-        
-        
-        System.out.println(a.teste(4));
+         b.imprimirTD();
+         a.somarTudo();
+         b.somarTudo();
+     
     }
     
 }

@@ -44,7 +44,7 @@ public class LDEncadeada {
     }
     }
 
-    /****************************************************<<INSERIR>>************/
+    /****************************************************<< INSERIR >>*********/
     //Inserir início
     public void inserirInicio(Object x){
         Celula aux = new Celula ();
@@ -109,7 +109,7 @@ public class LDEncadeada {
         }
     }
    
-    //******************************************************<<REMOVER>>********/
+    //****************************************************<< REMOVER >>********/
     
     //Remover primeiro
     public void removerPrimeiro(){
@@ -203,7 +203,7 @@ public class LDEncadeada {
         this.tam--;
         System.out.println("Removido : " + item);
     }
-    //*******************************************************<<EXTRAS>>********/
+    //*****************************************************<< EXTRAS >>********/
     //Imprimir tudo
     public void imprimirTD(){ 
         Celula aux = this.inicio;
@@ -213,6 +213,17 @@ public class LDEncadeada {
             aux = aux.prox;
         } 
         System.out.println(" ");
+    }
+    
+    //Concatenar duas listas 
+    public void concatenar(LDEncadeada x1, LDEncadeada x2){
+        if(x1 == null && x2 ==null){
+            System.out.println("Listas vazias");
+        }
+        x1.ultimo.prox = x2.inicio.prox;
+        x2.inicio.prox.ant = x1.ultimo;
+        
+        x2.inicio.prox = null;
     }
      
     //Tamanho

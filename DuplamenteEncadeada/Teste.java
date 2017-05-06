@@ -15,6 +15,7 @@ public class Teste {
      */
     public static void main(String[] args) {
         LDEncadeada a = new LDEncadeada();
+        LDEncadeada b = new LDEncadeada();
         
         a.inserirNoFim(1);
         a.inserirNoFim(2);
@@ -23,12 +24,13 @@ public class Teste {
         a.inserirNoFim(5);
         a.inserirNoFim(6);
         
+        b.inserirNoFim(7);
+        b.inserirNoFim(8);
+      
+        a.concatenar(a, b);
         a.imprimirTD();
-        
-        
-        a.removerPorObjeto(6);
-        
-        a.imprimirTD();
+        b.imprimirTD();
+
     }
     
 }
