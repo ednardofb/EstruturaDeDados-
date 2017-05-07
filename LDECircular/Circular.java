@@ -70,11 +70,40 @@ public class Circular {
                aux.ant = this.inicio;
                this.tam++;
            }
-          
-       }
+       }   
+    }
+    
+    //Inserir por posição
+    public void inserirPorPosicao(Object z, int posicao){
+        if(posicao == 1){
+            inserirInicio(z);
+        }
+        else{
+            //Caso seja o último
+            if(posicao > this.tam){
+                inserirFim(z);
+            }
+            //Inserindo pela posição
+            else{
+                Celula aux = new Celula();
+                Celula test = new Celula();
+                aux = this.inicio.prox;
+                int cont = 1;
+                while(cont != posicao){
+                    aux = aux.prox;
+                    cont++;
+                }
+                test.item = z;
+                aux.ant.prox = test;
+                test.prox = aux;
+               
+               test.ant = aux.ant;
+               aux.ant = test;
+            }
+        }
+    }
     
     //Inseir fim           
-    }
     public void inserirFim(Object z){
         Celula aux = new Celula();
         aux.item = z;

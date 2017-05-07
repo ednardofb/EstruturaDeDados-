@@ -16,8 +16,9 @@ public class Teste {
        a.inserirInicio(2);
        a.inserirInicio(3);
        a.inserirFim(5);
-        a.imprimirTD();
-       a.tamanho();
+        
+       a.inserirPorPosicao(8, 5);
+       a.imprimirTD();
     }
     
 }

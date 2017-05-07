@@ -41,6 +41,7 @@ public class ListPriori{
         else{
             Celula aux = new Celula();
             aux = this.primeiro;
+            //Enquanto a posição do objeto não for encontrada ind fica com 0
             int ind = 0;
             while(ind == 0){
                 if(aux.prox == null){

@@ -5,7 +5,6 @@
  */
 package TesteArquivo;
 
-import ListPrioridade.ListPriori;
 import static TesteArquivo.Trabalho.magica;
 import java.io.BufferedReader;
 import java.io.File;
