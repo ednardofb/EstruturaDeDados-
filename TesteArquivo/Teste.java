@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -19,16 +20,23 @@ public class Teste {
     
     public static void main(String args[]){
        
-        //Criando o aquivo ENTRADA
-        File arquivo = new File("entrada.txt");
         //Criando o arquivo SAÍDA 
         File arq = new File("saida.txt");
+        
+        Scanner a = new Scanner (System.in);
+        System.out.println("Digite nome do arquivo a ser lido juntamente com seu tipo \n nome.txt");
+        String nome = a.nextLine();
+        
+        //Caso queira criar o arquivo com qualquer nome
+        //File arquivo = new File(nome);
+        
+        
         try{
             //Criado
-            arquivo.createNewFile();
+            //arquivo.createNewFile();
             arq.createNewFile();
             /*****************************************LER ARQUIVO DE ENTRADA***/
-            FileReader ler = new FileReader(arquivo);
+            FileReader ler = new FileReader(new File(nome));
             BufferedReader lerb = new BufferedReader(ler);
             //Ler a primeira linha e as próximas do arquivo de entrada, cada linha 
             //é transmitida para um método que vai quebrar os caracteres em 

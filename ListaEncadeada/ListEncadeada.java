@@ -1,5 +1,7 @@
 package ListaEncadeada;
 
+import sun.net.www.content.text.Generic;
+
 
 public class ListEncadeada{
 
@@ -157,6 +159,7 @@ public class ListEncadeada{
     
    /***************************************************************************/ 
    
+  
    
    
     /* vazia*/

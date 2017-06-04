@@ -95,6 +95,24 @@ public class ListPriori{
         System.out.println(" ");
     }
     
+    //Ordenar 
+     public void ordenar(){
+        Celula aux = new Celula();
+        int aux2;
+        aux = this.primeiro.prox;
+        aux2 = this.primeiro.prox.item;
+        
+        while(aux != null || aux.item > aux2){
+            if(aux == null){
+                
+            }
+        }
+        
+        
+        
+    }
+    
+    //Retorna elemento por elemento
     public int teste(int x){
         Celula aux = new Celula();
         aux.prox = primeiro.prox;
